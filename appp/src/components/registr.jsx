@@ -8,6 +8,18 @@ const Mainform = () => {
     const [passwordDirty, setPasswordDirty] = useState(false)
     const [emailError, setEmailError] = useState('Email не может быть пустым')
     const [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
+    const [formValid, setFormValid] = useState(false)
+    
+    useEffect( () => {
+        if (emailError || passwordError) {
+            setFormValid(false)
+        }
+        else {
+            setFormValid(true)
+        }
+    }, [emailError, passwordError]
+
+    )
 
     const emailHandler = (e) => {
         setEmail(e.target.value)
@@ -54,7 +66,7 @@ const Mainform = () => {
                         {(passwordDirty && passwordError) && <div style={{color:'red'}}>{passwordError}</div>}
                         <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type='password' placeholder='Enter your password....'/>
                     </div>
-                    <button type='submit'>Registration</button>
+                    <button disabled={!formValid} type='submit'>Registration</button>
                 </form>
             </div>
         )

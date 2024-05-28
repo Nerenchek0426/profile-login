@@ -57,3 +57,9 @@ input {
     display: flex;
     flex-direction: column;
 }
+button:disabled {
+    background-color: #b0bec5; /* Бледный цвет для disabled */
+    color: #78909c; /* Бледный цвет текста для disabled */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
