@@ -1,10 +1,10 @@
 import React from "react"
-import form from "./components/registr"
+import Mainform from "./components/registr"
 
 class App extends React.Component {
     render() {
         return(
-            <form />
+            <Mainform />
         )
     }
 }

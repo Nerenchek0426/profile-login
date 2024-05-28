@@ -1,6 +1,6 @@
 import React from "react";
-import * as ReactDOMClient from "react-dom/client"
-const form = () => {
+
+const Mainform = () => {
         return(
             <div className="app">
                 <form>
@@ -12,4 +12,4 @@ const form = () => {
             </div>
         )
 }
-export default form
+export default Mainform
