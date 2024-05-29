@@ -9,22 +9,19 @@ const Mainform = () => {
     const [emailError, setEmailError] = useState('Email не может быть пустым')
     const [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
     const [formValid, setFormValid] = useState(false)
-    
-    useEffect( () => {
+
+    useEffect(() => {
         if (emailError || passwordError) {
             setFormValid(false)
-        }
-        else {
+        } else {
             setFormValid(true)
         }
-    }, [emailError, passwordError]
-
-    )
+    }, [emailError, passwordError])
 
     const emailHandler = (e) => {
         setEmail(e.target.value)
         const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        if(!re.test(String(e.target.value).toLowerCase())) {
+        if (!re.test(String(e.target.value).toLowerCase())) {
             setEmailError('Некорректный Email')
         } else {
             setEmailError('')
@@ -38,8 +35,7 @@ const Mainform = () => {
             if (!e.target.value) {
                 setPasswordError('Пароль не может быть пустым')
             }
-        } 
-        else {
+        } else {
             setPasswordError('')
         }
     }
@@ -55,20 +51,42 @@ const Mainform = () => {
         }
     }
 
+    const handleRegistration = async (e) => {
+        e.preventDefault();
+        if (formValid) {
+            const response = await fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
 
-        return(
-            <div className="app">
-                <form>
-                    <h1>Регистрация</h1>
-                    <div className="inputs">
-                        {(emailDirty && emailError) && <div style={{color:'red'}}>{emailError}</div>}
-                        <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type='text' placeholder='Enter your email....'/>
-                        {(passwordDirty && passwordError) && <div style={{color:'red'}}>{passwordError}</div>}
-                        <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type='password' placeholder='Enter your password....'/>
-                    </div>
-                    <button disabled={!formValid} type='submit'>Registration</button>
-                </form>
-            </div>
-        )
+            const result = await response.json();
+            if (response.ok) {
+                alert(result.message);
+            } else {
+                alert(result.error);
+            }
+        }
+    }
+
+    return (
+        <div className="app">
+            <form>
+                <h1>Регистрация</h1>
+                <div className="inputs">
+                    {(emailDirty && emailError) && <div style={{ color: 'red' }}>{emailError}</div>}
+                    <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type='text' placeholder='Enter your email....' />
+                    {(passwordDirty && passwordError) && <div style={{ color: 'red' }}>{passwordError}</div>}
+                    <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type='password' placeholder='Enter your password....' />
+                </div>
+                <div className="buttons">
+                    <button disabled={!formValid} onClick={handleRegistration} type='button'>Registration</button>
+                    <button disabled={!formValid} type="button">Log in</button>
+                </div>
+            </form>
+        </div>
+    )
 }
-export default Mainform
+export default Mainform;

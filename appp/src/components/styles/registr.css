@@ -1,6 +1,6 @@
 .app {
-    width: 50vw;
-    height: 40vh;
+    width: 40vw;
+    height: 50vh;
     border-radius: 20px;
     background-color: rgb(66, 66, 66);
     display: flex;
@@ -47,7 +47,7 @@ input {
     outline: none; /* Удаление обводки при фокусе */
     background-color: transparent; /* Прозрачный фон */
     font-size: 22px;
-    margin-top: 20px;
+    margin: 10px 0 10px 0;
     height: 3vh;
     border-radius: 10px;
     background-color: rgb(161, 161, 161);
