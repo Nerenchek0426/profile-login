@@ -75,6 +75,32 @@ const Mainform = () => {
         }
     };
 
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        if (formValid) {
+            try {
+                const response = await fetch('http://192.168.2.151:5000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Email, Password })
+                });
+    
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    console.log('KAKASHKE')
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                alert('Ошибка сети: ' + error.message);
+            }
+        }
+    };
+    
+
     return (
         <div className="app">
             <form>
@@ -87,7 +113,7 @@ const Mainform = () => {
                 </div>
                 <div className="buttons">
                     <button disabled={!formValid} onClick={handleRegistration} type='button'>Registration</button>
-                    <button disabled={!formValid} type="button">Log in</button>
+                    <button disabled={!formValid} onClick={handleLogin} type="button">Log in</button>
                 </div>
             </form>
         </div>
