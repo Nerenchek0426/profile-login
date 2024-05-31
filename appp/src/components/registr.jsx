@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./styles/registr.css"
+import { useNavigate } from 'react-router-dom';
+import "./styles/registr.css";
 
 const Mainform = () => {
+    const navigate = useNavigate();
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
     const [emailDirty, setEmailDirty] = useState(false);
@@ -66,6 +68,7 @@ const Mainform = () => {
                 const result = await response.json();
                 if (response.ok) {
                     alert(result.message);
+                    navigate('/profile'); // Redirect to profile page after successful registration
                 } else {
                     alert(result.error);
                 }
@@ -90,7 +93,7 @@ const Mainform = () => {
                 const result = await response.json();
                 if (response.ok) {
                     alert(result.message);
-                    console.log('KAKASHKE')
+                    navigate('/profile'); // Redirect to profile page after successful login
                 } else {
                     alert(result.error);
                 }
@@ -100,7 +103,6 @@ const Mainform = () => {
         }
     };
     
-
     return (
         <div className="app">
             <form>
@@ -119,6 +121,5 @@ const Mainform = () => {
         </div>
     );
 };
-
 
 export default Mainform;

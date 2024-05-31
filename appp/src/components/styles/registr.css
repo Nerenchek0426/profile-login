@@ -20,6 +20,7 @@ h1 {
     font-size: 46px;
 }
 button {
+    margin: 5px;
     height: 4vh;
     width: 10vw;
     border-radius: 10px;
