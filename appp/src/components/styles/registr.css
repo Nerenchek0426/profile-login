@@ -1,26 +1,19 @@
 .app {
-    width: 40vw;
+    width: 25vw;
     height: 50vh;
-    border-radius: 20px;
-    background-color: rgb(66, 66, 66);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 1em;
+    background-color: rgb(255, 255, 255);
 }
 form {
     height: 100%;
-    width: 30vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    position: relative;
 }
-h1 {
-    color: rgb(152, 255, 255);
-    font-size: 46px;
-}
+
 button {
-    margin: 5px;
     height: 4vh;
     width: 10vw;
     border-radius: 10px;
@@ -28,39 +21,87 @@ button {
     background-color: #e0f7fa; 
     color: #0277bd; 
     border: none;
-    padding: 10px 20px;
+    
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {  
+button:hover, button:active{  
     background-color: #80deea; 
 }
 
-
-button:active {
-    background-color: #4dd0e1; 
-}
-
-input {
-    border: 1px solid #333; /* Темный бордер */
-    padding: 8px; /* Поля вокруг текста */
-    outline: none; /* Удаление обводки при фокусе */
-    background-color: transparent; /* Прозрачный фон */
-    font-size: 22px;
-    margin: 10px 0 10px 0;
-    height: 3vh;
-    border-radius: 10px;
-    background-color: rgb(161, 161, 161);
-}
-.inputs {
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
-}
 button:disabled {
     background-color: #b0bec5; /* Бледный цвет для disabled */
     color: #78909c; /* Бледный цвет текста для disabled */
     cursor: not-allowed;
     opacity: 0.6;
+}
+input::placeholder {
+    opacity: 0.3;
+
+}
+
+input {
+    border: 1px solid rgb(129, 129, 129);
+    width: 100%;
+    padding: 8px; /* Поля вокруг текста */
+    font-size: 22px;
+    margin: 10px 0 10px 0;
+    background-color: #ffffff;
+    border-top-right-radius: 10px;
+
+    border-bottom-right-radius: 10px;
+}
+
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/*alvrinovd*/
+
+.before_input {
+    display: flex;
+    align-items: center;
+    margin: 0 10% 0 10%;
+
+
+}
+
+.preview {
+    background-color: #e7e7e7;
+    width: 5.5vw;
+    padding: 8px; /* Поля вокруг текста */
+    border: 1px solid rgb(129, 129, 129);
+    font-size: 22px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+}
+
+.exeptinal {
+    color: red;
+    margin: 1% 10% 1% 10%;
+}
+
+.header {
+    text-align: center;
+    margin: 0 10% 0 10%;
+}
+
+h1 {
+    margin-bottom: 1vh;
+    font-size: 2em;
+}
+
+h2 {
+    opacity: 0.5;
+    font-weight: 100;
+}
+
+h4 {
+    font-weight: 400;
 }

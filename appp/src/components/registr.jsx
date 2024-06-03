@@ -106,13 +106,29 @@ const Mainform = () => {
     return (
         <div className="app">
             <form>
-                <h1>Регистрация</h1>
-                <div className="inputs">
-                    {(emailDirty && emailError) && <div style={{ color: 'red' }}>{emailError}</div>}
-                    <input onChange={e => emailHandler(e)} value={Email} onBlur={e => blurHandler(e)} name='email' type='text' placeholder='Enter your email....' />
-                    {(passwordDirty && passwordError) && <div style={{ color: 'red' }}>{passwordError}</div>}
-                    <input onChange={e => passwordHandler(e)} value={Password} onBlur={e => blurHandler(e)} name='password' type='password' placeholder='Enter your password....' />
+                <div className="header">
+                    <h1>Создайте свой профиль</h1>
+                    <h2>Заполните поля ниже и нажмите кнопку регистрации</h2>
                 </div>
+                <div className="inputs">
+                    {(emailDirty && emailError) && <div className="exeptinal">{emailError}</div>}
+
+                    <div className="before_input">
+                        <div className="preview">
+                            <h4>Email</h4>
+                        </div>
+                        <input onChange={e => emailHandler(e)} value={Email} onBlur={e => blurHandler(e)} name='email' type='text' placeholder='e.g  example@mail.ru' />
+                    </div> 
+                    {(passwordDirty && passwordError) && <div className="exeptinal">{passwordError}</div>}
+                    
+                    <div className="before_input">
+                        <div className="preview">
+                            <h4>Password</h4>
+                        </div>
+                        <input onChange={e => passwordHandler(e)} value={Password} onBlur={e => blurHandler(e)} name='password' type='password' placeholder='e.g  Qwerty123' />
+                    </div> 
+                </div>
+                
                 <div className="buttons">
                     <button disabled={!formValid} onClick={handleRegistration} type='button'>Registration</button>
                     <button disabled={!formValid} onClick={handleLogin} type="button">Log in</button>
