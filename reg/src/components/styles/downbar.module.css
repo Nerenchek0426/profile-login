@@ -1,0 +1,22 @@
+.downbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    background-color: #232526;
+    border-radius: 20px;
+    color: white;
+}
+
+.main_form {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 10px;
+
+    img {
+        border: 4px solid #414344;
+        border-radius: 50%;
+        width: 110px;
+    }
+}

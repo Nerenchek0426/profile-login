@@ -3,24 +3,23 @@ import styles from './styles/upbar.module.css';
 import { Link } from 'react-router-dom';
 
 const Upbar  = () => {
-    const {links, currentLink} = useLinks()
+    const {links} = useLinks()
+    const {pathname} = window.location
 
-    const visibleLinks = links.find(link => link.url === currentLink)
 
-    console.log(links, currentLink, visibleLinks)
+    const visibleLinks = links.find(link => pathname.includes(link.url))
+
     return (
         <div className={styles.header}>
             <ul>
                 {visibleLinks?.sublinks?.map(link => (
-                         <li>
-                            <Link to={link.url} style={{textDecoration: "none", color: "white", display: "flex", gap: "1em"}}>
-                               {link.icon}
-                               {link.name}
-                            </Link>
+                    <Link to={link.url} style={{display: "flex", flex: "1", justifyContent: "center", textDecoration: "none", color: "white"}}>
+                        <li>
+                            {link.name}
                         </li>
+                    </Link>
                     ))}         
                 </ul>
-
         </div>
     )
 }

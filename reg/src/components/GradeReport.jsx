@@ -1,4 +1,4 @@
-import styles from './styles/profile.module.css'
+import styles from './styles/layout.module.css'
 import Sidebar from './Sidebar';
 
 const GrandeReport = () => {

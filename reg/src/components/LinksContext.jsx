@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { User, GraduationCap, LogOut, Moon, ScrollText, TableProperties } from 'lucide-react';
+import { User, GraduationCap, ScrollText, TableProperties, Mail } from 'lucide-react';
 
 const LinksContext = createContext();
 
@@ -45,23 +45,13 @@ export const LinksProvide = ({children}) => {
         ]},
 
         {
+            name: 'Входящие',
+            url: 'http://192.168.2.151:3000',
+            icon: <Mail color="white" size={28} />},
+        {
         name: 'Расписание',
-        url: '/Schedule',
-        icon: <TableProperties color="white" size={28} />,
-        sublinks: [
-            {
-                name: 'Учебные',
-                url: '/Schedule/Studying'
-            },
-            {
-                name: 'Экзаменнационные листы',
-                url: '/Schedule/Exlist'
-            },
-            {
-                name: 'Инструкции',
-                url: '/Schedule/Instruc'
-            }
-        ]},
+        url: 'http://185.22.232.236/schedule',
+        icon: <TableProperties color="white" size={28} />},
         {
         name: 'Дипломники',
         url: '/Graduates',

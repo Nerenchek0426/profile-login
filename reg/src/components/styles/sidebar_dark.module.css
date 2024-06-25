@@ -3,12 +3,12 @@
     color: white;
     background-color: #232526;
     display: flex;
-    flex: 1;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 5em;
-    border-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .Sidebar_header{
     display: flex;

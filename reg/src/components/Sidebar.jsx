@@ -3,7 +3,7 @@ import UserContext from './UserContext';
 import styles from './styles/sidebar_dark.module.css';
 import logo from "./styles/images/logotip.png";
 import icon from "./styles/images/icon.png";
-import { User, GraduationCap, LogOut, Moon, ScrollText, TableProperties, FileX } from 'lucide-react';
+import { LogOut, Moon } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLinks } from './LinksContext';
 
@@ -36,12 +36,12 @@ const Sidebar = () => {
                 <div className={styles.Nav_list}>
                     <ul>
                         {links.map(link => (
-                             <li>
-                                <Link to={link.url} onClick={() => setCurrentLink(link.url)}  style={{textDecoration: "none", color: "white", display: "flex", gap: "1em"}}>
-                                   {link.icon}
-                                   {link.name}
-                                </Link>
-                            </li>
+                            <Link to={link.url} onClick={() => setCurrentLink(link.url)}  style={{textDecoration: "none", color: "white", display: "flex", gap: "1em", alignItems: "center"}}>
+                                <li style={{display: "flex", gap: "1em", alignItems: "center", width: "100%"}}>
+                                    {link.icon}
+                                    {link.name}
+                                </li>
+                            </Link>
                         ))}         
                     </ul>
                 </div>

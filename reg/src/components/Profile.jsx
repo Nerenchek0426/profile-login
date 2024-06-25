@@ -1,16 +1,12 @@
-import React, { useContext } from 'react';
-import UserContext from './UserContext';
-import styles from './styles/profile.module.css'
+import styles from './styles/layout.module.css'
 import Sidebar from './Sidebar';
 import Upbar from './Upbar';
 
 const Profile = () => {
-    const { user } = useContext(UserContext);
-
     return (
-        <div className={styles['main-page']}>
+        <div className={styles.main_page}>
             <Sidebar />
-            <div className={styles["Profile_main"]}>
+            <div className={styles.Profile_main}>
             <Upbar />    
             </div>
         </div>

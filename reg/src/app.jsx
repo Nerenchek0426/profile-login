@@ -6,6 +6,7 @@ import Profile from './components/Profile';
 import Register from './components/Registr';
 import GradeReport from './components/GradeReport';
 import { LinksProvide } from './components/LinksContext';
+import MyProfile from './components/MyProfile';
 // import Schedule from './Schedule';
 // import Graduates from './Graduates';
 
@@ -17,9 +18,8 @@ const App = () => (
                 <Route path="/" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
-                { <Route path="/grade-report" element={<GradeReport />} />}
-                {/* <Route path="/schedule" element={<Schedule />} /> /}
-                {/ < Route path="/graduates" element={<Graduates />} /> */}
+                <Route path="/grade-report" element={<GradeReport />} />
+                <Route path="/Profile/MyProfile" element={<MyProfile/>} />
             </Routes>
         </Router>
         </LinksProvide>
